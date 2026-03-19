@@ -177,6 +177,11 @@ This also ensures that all groups are given the same space.
 * **Spokesperson:** Luis Felipe Longo Micchi <luis.felipe.longo.micchi@uni-jena.de> 
 * **URL:** https://computationalrelativity.github.io/grathenacode/
 
+### GRHydro 
+
+* **Spokesperson:** Beyhan Karakas <beyhannkarakas@gmail.com> 
+* **URL:** https://bitbucket.org/einsteintoolkit/einsteinevolve/src/511caf1e61f09cfdb66f4fff8b89619bf8221669/GRHydro/
+
 ### IllinoisGRMHD/GRHayLHD
 
 * **Spokesperson:** Miquel Miravet-Tenés <m.miravet-tenes@soton.ac.uk>
