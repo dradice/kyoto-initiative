@@ -193,6 +193,11 @@ This also ensures that all groups are given the same space.
 * **URL:** https://einsteintoolkit.org/thornguide/GRHayLET/IllinoisGRMHD/documentation.html
 * **URL:** https://einsteintoolkit.org/thornguide/GRHayLET/GRHayLHD/documentation.html
 
+### MHDuet
+
+* **Spokesperson:** Carlos Palenzuela <carlos.palenzuela@uib.es>
+* **URL:** http://mhduet.liu.edu/
+
 ### NANASI
 
 * **Spokesperson:** Kenta Kiuchi <kenta.kiuchi@aei.mpg.de>
@@ -207,6 +212,7 @@ This also ensures that all groups are given the same space.
 
 * **Spokesperson:** Francois Foucart <francois.foucart@unh.edu>
 * **URL:** https://www.black-holes.org/for-researchers/spec
+
 
 
 ## How to Participate
