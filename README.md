@@ -176,6 +176,12 @@ This also ensures that all groups are given the same space.
 * **Spokesperson:** Elias R. Most <emost@caltech.edu>
 * **URL:** https://academic.oup.com/mnras/article/490/3/3588/5585413
 
+### GRaM-X
+
+* **Spokesperson:** Philipp. Mösta <p.moesta@uva.nl>
+* **URL:** https://iopscience.iop.org/article/10.1088/1361-6382/acf2d9
+
+
 ### GR-Athena++ 
 
 * **Spokesperson:** Luis Felipe Longo Micchi <luis.felipe.longo.micchi@uni-jena.de> 
