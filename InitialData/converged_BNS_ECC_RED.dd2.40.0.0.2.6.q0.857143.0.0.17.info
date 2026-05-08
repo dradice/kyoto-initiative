@@ -1,0 +1,100 @@
+binary
+{
+    adot -1.3824624999999996e-05
+    com -1.5412428067730746
+    comy 0.007312280585176442
+    distance 40
+    ecc_omega 0.0058770443472391017
+    global_omega 0.0058770443472391017
+    outer_shells 0
+    q 0.85714285714285721
+    qpig 12.566370614359172
+    res 17
+    rext 80
+    ns1
+    {
+        chi 0
+        decay_limit 20
+        dim 3
+        fixed_r 7.311225944850861
+        hc 1.172869068133479
+        madm 1.2
+        mb 1.2934986652256451
+        n_inner_shells 0
+        nc 0.00085909609916496915
+        nshells 0
+        omega 2.1902396219232023e-05
+        ql_madm 1.186909546894416
+        qpig 12.566370614359172
+        res 17
+        rin 3.6556129724254305
+        rmid 7.6733212923397591
+        rout 11.663483272141487
+        eosfile dd2.lorene
+        eostype Cold_Table
+        h_cut 0
+        interpolation_pts 2000
+    }
+    ns2
+    {
+        chi 0
+        decay_limit 20
+        dim 3
+        fixed_r 7.2101807214706284
+        hc 1.2100082442420412
+        madm 1.3999999999999999
+        mb 1.5312440908081906
+        n_inner_shells 0
+        nc 0.00094043312800333229
+        nshells 0
+        omega 1.4944494564129253e-05
+        ql_madm 1.3851325599928395
+        qpig 12.566370614359172
+        res 17
+        rin 3.6050903607353142
+        rmid 7.5003824308536426
+        rout 11.663483272141487
+        eosfile dd2.lorene
+        eostype Cold_Table
+        h_cut 0
+        interpolation_pts 2000
+    }
+}
+fields
+{
+    conf on
+    lapse on
+    logh on
+    phi on
+    shift on
+}
+stages
+{
+    ecc_red on
+    total on
+    total_bc on
+}
+sequence_controls
+{
+    centralized_cos on
+    checkpoint off
+    co_use_shells off
+    corot_binary off
+    delete_shift off
+    fixed_bin_omega off
+    fixed_lapse off
+    fixed_mb off
+    initial_regrid off
+    resolve off
+    sequences on
+    update_initial off
+    use_boosted_co on
+    use_fixed_r off
+    use_pn on
+}
+sequence_settings
+{
+    initial_resolution 9
+    solver_max_iterations 15
+    solver_precision 1e-08
+}

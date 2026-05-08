@@ -34,7 +34,7 @@ This project is still open to new groups wanting to join.
 
 Participation in a large-scale code comparison effort is time and
 resource intensive. In the absence of strict deadlines, each group is
-incentivized to be the last submitting. In the interest of fairness and
+incentivized to be the last one submitting. In the interest of fairness and
 in recognition of the efforts of those involved, this project has a
 strict deadline for submission. Failure to meet the deadline implies
 exclusion from the project and from the paper.
@@ -44,20 +44,25 @@ exclusion from the project and from the paper.
 
 **Initial data lead:** Kenta Kiuchi <kenta.kiuchi@aei.mpg.de>
 
-Low-eccentricity [FUKA](https://samueltootle.github.io/fuka/) initial
-data corresponding to two neutron stars will be made available at a
-pre-specified date, to give all groups, including those joining after the
-YITP workshop, the same time to produce waveforms.
-
-Groups may, at their discretion, opt to generate and evolve initial data
-created with a different solver, but corresponding to the same physical
-system.
+All groups will simulate "the same" binary with the following parameters.
+Groups may use the provided [FUKA](https://samueltootle.github.io/fuka/)
+initial data, or compute their own initial data. Groups may also opt to
+start from the provided initial data and perform additional iterations of
+eccentricity reduction.
 
 ### Initial data parameters
 
-* **EOS:** [HS(DD2) from CompOSE](https://compose.obspm.fr/eos/18).
-* **Masses:** TBD, target something like $1.4 + 1.2\ M_\odot$
-* **Separation:** TBD, target ~10 orbits
+* **EOS:** [HS(DD2) from CompOSE](https://compose.obspm.fr/eos/18)
+* **Masses (at infinite separation):** $M_1 = 1.4\ M_\odot$, $M_2 = 1.2\ M_\odot$
+* **Initial Separation:** $40\ M_\odot$ (roughly 13-15 orbits prior to merger)
+
+### FUKA initial data
+
+Two variants of the initial data are made available.
+
+1. FUKA initial data employing post-Newtonian eccentricity reduction [[info](InitialData/converged_BNS_ECC_RED.dd2.40.0.0.2.6.q0.857143.0.0.17.info), [data](InitialData/converged_BNS_ECC_RED.dd2.40.0.0.2.6.q0.857143.0.0.17.dat)].
+2. FUKA initial data with eccentricity reduced using SACRA [[info](InitialData/converged_BNS_SACRA_ECC_RED.dd2.40.0.0.2.6.q0.857143.0.0.17.info), [data](InitialData/converged_BNS_SACRA_ECC_RED.dd2.40.0.0.2.6.q0.857143.0.0.17.dat)].
+
 
 
 ## Simulation Parameters
@@ -381,7 +386,7 @@ This also ensures that all groups are given the same space.
 
 ### GRaM-X
 
-* **Spokesperson:** Philipp. Mösta <p.moesta@uva.nl>
+* **Spokesperson:** Philipp Mösta <p.moesta@uva.nl>
 * **URL:** https://iopscience.iop.org/article/10.1088/1361-6382/acf2d9
 
 
