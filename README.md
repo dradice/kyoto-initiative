@@ -55,6 +55,7 @@ eccentricity reduction.
 * **EOS:** [HS(DD2) from CompOSE](https://compose.obspm.fr/eos/18)
 * **Masses (at infinite separation):** $M_1 = 1.4\ M_\odot$, $M_2 = 1.2\ M_\odot$
 * **Initial Separation:** $40\ M_\odot$ (roughly 13-15 orbits prior to merger)
+* **Initial Orbital Frequency:** $\omega = 0.0058679915063317\ M_\odot^{-1}$ 
 
 ### FUKA initial data
 
@@ -63,7 +64,16 @@ Two variants of the initial data are made available.
 1. FUKA initial data employing post-Newtonian eccentricity reduction [[info](InitialData/converged_BNS_ECC_RED.dd2.40.0.0.2.6.q0.857143.0.0.17.info), [data](InitialData/converged_BNS_ECC_RED.dd2.40.0.0.2.6.q0.857143.0.0.17.dat)].
 2. FUKA initial data with eccentricity reduced using SACRA [[info](InitialData/converged_BNS_SACRA_ECC_RED.dd2.40.0.0.2.6.q0.857143.0.0.17.info), [data](InitialData/converged_BNS_SACRA_ECC_RED.dd2.40.0.0.2.6.q0.857143.0.0.17.dat)].
 
-
+The SACRA eccentricity-reduction runs employed the standard 1+log slicing
+$$
+  (\partial_t + \beta^i \partial_i) \alpha = 2 \alpha K,\qquad
+$$
+with second-order $\Gamma$-freezing gauge [[1](https://arxiv.org/abs/0806.4007), [2](https://arxiv.org/abs/gr-qc/0206072)]:
+$$
+  (\partial_t + \beta^i \partial_i) \beta^i = 0.75\, B^i, \qquad
+  (\partial_t + \beta^i \partial_i) B^i = (\partial_t + \beta^i \partial_i) \tilde\Gamma - \eta_s B^i,
+$$
+where $\eta_s = 0.03$.
 
 ## Simulation Parameters
 
