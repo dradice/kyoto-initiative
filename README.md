@@ -74,13 +74,23 @@ resolutions, or with Richardson extrapolation, or with any technique each
 team prefers. We expect each group to submit complex phase and amplitude
 of the strain at $\mathcal{I}_+$ decomposed in $s=-2$ spin weighted
 spherical harmonics, as well as estimated uncertainties for each
-quantity. The exact data format will be determined by the data analysis
-team.
+quantity. Data are submitted in the [watpy](https://git.tpi.uni-jena.de/core/watpy)
+/ CoRe database format, with the comparison-specific adaptations
+described in the [Data Format](#data-format) section below.
 
 
 ### Gravitational-Wave Data
 
-This section will describe the details of the gravitational-wave data.
+Each group submits **one** waveform per mode, corresponding to its best
+estimate of the strain at future null infinity $\mathcal{I}_+$ — typically
+obtained by polynomial extrapolation in $1/r$ from finite-radius
+extractions, or by Cauchy-characteristic extraction. No per-resolution or
+per-radius datasets are submitted; the resolution dependence is folded
+into the reported uncertainties.
+
+The $(\ell, m) = (2, 2)$ mode is required. Higher modes up to $\ell = 8$
+are strongly encouraged. File and column conventions are specified in
+the [Data Format](#data-format) section.
 
 
 ### Ejecta Data
@@ -106,7 +116,177 @@ simulations. For the purpose of this comparison, the disk mass is
 estimated as the total baryonic mass of all the material with rest-mass
 density $\rho_b \leq 10^{13}\ {\rm g}\,{\rm cm}^{-3}$. 
 
+## Data Format
 
+Submissions follow the [watpy](https://git.tpi.uni-jena.de/core/watpy) /
+CoRe database conventions, with two adaptations specific to this
+comparison:
+
+1. Each group submits **one** waveform per mode, extrapolated to
+   $\mathcal{I}_+$ — not the per-radius, per-resolution datasets stored
+   in the public CoRe DB.
+2. Each data file (waveform or outflow) is paired with a sibling
+   **`_error` file** of identical schema, in which every value is
+   replaced by the $1\sigma$ uncertainty estimate of the corresponding
+   entry in the data file. The shared independent variable (e.g. the
+   retarded time column $u/M$) is repeated unchanged in the error file,
+   so the two can be loaded with the same parser.
+
+All quantities are in geometric units ($c = G = M_\odot = 1$). Time and
+length are reported in units of the binary's gravitational mass $M$ in
+solar masses; the value of $M$ is recorded in each file's header.
+
+### Directory layout
+
+A submission is a single flat directory, named after the evolution code:
+
+    <code>/
+    |-- metadata.txt
+    |-- Rh_l2_m2.txt
+    |-- Rh_l2_m2_error.txt
+    |-- Rh_l2_m1.txt
+    |-- Rh_l2_m1_error.txt
+    |-- ...
+    |-- outflows.txt
+    |-- outflows_error.txt
+    |-- ejecta_hist_Ye.txt
+    |-- ejecta_hist_Ye_error.txt
+    |-- ejecta_hist_entropy.txt
+    |-- ejecta_hist_entropy_error.txt
+    |-- ejecta_hist_velocity.txt
+    |-- ejecta_hist_velocity_error.txt
+
+The radius suffix from the CoRe filename convention
+(`Rh_l<L>_m<M>_r<RRRRR>.txt`) is dropped, since the data correspond to
+$\mathcal{I}_+$ rather than a finite extraction sphere.
+
+### Mode files
+
+Each `Rh_l<L>_m<M>.txt` is plain ASCII with two header lines giving the
+binary mass and the column layout:
+
+    # M=2.6000e+00
+    # u/M:0  Reh/M:1  Imh/M:2  Momega:3  A/M:4  phi:5
+
+| col | symbol            | meaning                                                   |
+| --- | ----------------- | --------------------------------------------------------- |
+| 0   | $u/M$             | retarded time, mass-rescaled                              |
+| 1   | $\mathrm{Re}\,h/M$ | real part of the mass-rescaled mode strain $h_{\ell m}/M$ |
+| 2   | $\mathrm{Im}\,h/M$ | imaginary part of $h_{\ell m}/M$                          |
+| 3   | $M\omega$         | mass-rescaled instantaneous frequency $\omega = \dot\phi$ |
+| 4   | $A/M$             | mode amplitude, $A = \lvert h_{\ell m}\rvert$             |
+| 5   | $\phi$            | unwrapped mode phase, $h_{\ell m} = A\, e^{-i\phi}$       |
+
+This reproduces the CoRe convention exactly, with the per-radius `t`
+column omitted (it is meaningless after extrapolation to
+$\mathcal{I}_+$). Watpy's `wave` loader reads these files unchanged.
+
+The companion file `Rh_l<L>_m<M>_error.txt` shares the same schema —
+two header lines and six columns — but each row contains the $1\sigma$
+uncertainty estimate of the corresponding row in the data file:
+
+    # M=2.6000e+00
+    # u/M:0  d(Reh)/M:1  d(Imh)/M:2  d(Momega):3  d(A)/M:4  d(phi):5
+
+Column 0 is the retarded time and matches the data file row-for-row.
+Columns 1–5 are the $1\sigma$ errors $\delta(\mathrm{Re}\,h)/M$,
+$\delta(\mathrm{Im}\,h)/M$, $M\,\delta\omega$, $\delta A/M$, and
+$\delta\phi$ on the corresponding columns of `Rh_l<L>_m<M>.txt`.
+
+### Outflows
+
+`outflows.txt` records the integrated scalar quantities described in
+the [Ejecta Data](#ejecta-data) and [Disk Data](#disk-data) sections,
+one row per quantity:
+
+    # quantity        value           unit
+    ejecta_mass       <val>           Msun
+    ejecta_kinetic    <val>           Msun
+    disk_mass         <val>           Msun
+
+The companion file `outflows_error.txt` has the same schema, with each
+`<val>` replaced by its $1\sigma$ uncertainty estimate.
+
+In addition, three histograms of the unbound ejecta are submitted:
+distributions of mass with respect to electron fraction $Y_e$, specific
+entropy $s$ (in $k_B/\mathrm{baryon}$), and asymptotic velocity
+$v_\infty/c$. Each histogram is a plain-text file with two header lines
+and three columns:
+
+`ejecta_hist_Ye.txt`:
+
+    # bin variable: Ye  (dimensionless, 0 to 0.5)
+    # bin_low:0  bin_high:1  mass:2  [Msun]
+
+`ejecta_hist_entropy.txt`:
+
+    # bin variable: s  (kB/baryon)
+    # bin_low:0  bin_high:1  mass:2  [Msun]
+
+`ejecta_hist_velocity.txt`:
+
+    # bin variable: v_inf/c  (dimensionless, 0 to 1)
+    # bin_low:0  bin_high:1  mass:2  [Msun]
+
+Each row gives the bin edges and the total unbound rest mass falling
+within that bin. The bins should cover the full physical range of the
+variable and need not be uniform, but should be fine enough to resolve
+the distribution (a few tens of bins is typical). The sum of column 2
+across all rows must equal the `ejecta_mass` entry of `outflows.txt`
+to within the reported uncertainty.
+
+Each histogram has a sibling `*_error.txt` file with the same
+`bin_low`, `bin_high` columns and the $1\sigma$ uncertainty on the
+binned mass in column 2.
+
+### Metadata
+
+A single `metadata.txt` per submission, in the watpy `key = value`
+format defined by `watpy.coredb.metadata.MDKEYS`. The required keys for
+this comparison are:
+
+* `database_key`, `simulation_name`, `binary_type` (= `BNS`)
+* `id_code`, `id_eos`, `id_mass`, `id_mass_starA`, `id_mass_starB`,
+  `id_eccentricity`, `id_gw_frequency_Hz`
+* `evolution_code`, `metric_scheme`, `hydro_flux`,
+  `hydro_reconstruction`, `grid_spacing_min`, `number_of_orbits`
+
+Groups should additionally document, in free-text trailing the standard
+keys, (i) the procedure used to extrapolate the waveform to
+$\mathcal{I}_+$ and (ii) the uncertainty estimation method used to
+populate the `_error` files.
+
+### Computing strain from $\Psi_4$
+
+If your code outputs the Newman-Penrose scalar $\Psi_4$ rather than the
+strain $h$, watpy provides a fixed-frequency double time integration
+([Reisswig & Pollney, CQG **28** (2011) 195015](https://doi.org/10.1088/0264-9381/28/19/195015))
+that converts $\Psi_4$ to $h$ without the unphysical low-frequency drift
+of a naive double integration. The function lives at
+`watpy.wave.gwutils.fixed_freq_int_2`:
+
+```python
+import numpy as np
+from watpy.wave.gwutils import fixed_freq_int_2
+
+# u: uniformly-sampled retarded time array, in units of M
+# rPsi4_lm: complex r * Psi4_{lm} sampled on u
+# fcut: low-frequency cutoff, in mass-rescaled units (cycles per M)
+dt    = u[1] - u[0]
+rh_lm = fixed_freq_int_2(rPsi4_lm, fcut, dt=dt)
+```
+
+The cutoff $f_\mathrm{cut}$ must lie below the dominant frequency of
+the mode being integrated; setting it too high filters physical signal,
+while setting it too low fails to suppress the drift. A standard choice
+is
+
+$$ f_\mathrm{cut} = (1 - \epsilon)\, \frac{m}{2}\, f_0 ,$$
+
+with $f_0$ the initial gravitational-wave frequency of the (2, 2) mode
+(recorded as `id_gw_frequency_Momega22 / (2\pi)` in the metadata) and
+$\epsilon \sim 0.1$. The signal must be uniformly sampled in time —
+interpolate first if your $\Psi_4$ time series is not evenly spaced.
 
 ## Data Analysis
 
