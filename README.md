@@ -11,7 +11,7 @@ a paper, with all participating groups listed as co-authors.
 This comparison primarily focuses on gravitational waves. However, we
 will also compare ejecta and remnant disk data.
 
-At this time, we are in the planning phase for this effort.
+This project is still open to new groups wanting to join.
 
 ## Timeline
 
