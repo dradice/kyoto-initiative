@@ -116,6 +116,25 @@ simulations. For the purpose of this comparison, the disk mass is
 estimated as the total baryonic mass of all the material with rest-mass
 density $\rho_b \leq 10^{13}\ {\rm g}\,{\rm cm}^{-3}$. 
 
+### Computational Cost
+
+Each group is asked to keep track of the computational cost of their
+simulations and to report a few summary numbers at submission time.
+The intent is to document the resource footprint of this comparison
+and, more broadly, to motivate a discussion of the environmental
+impact of large-scale numerical-relativity campaigns. The quantities
+to report are:
+
+* the **total GPU-hours** (and/or CPU-core-hours) consumed by all
+  production runs that contribute to the submitted waveform,
+* an estimate of the **equivalent CO2 emission**, e.g. via the
+  [Green Algorithms](https://www.green-algorithms.org/) calculator
+  applied to the host facility's energy mix, and
+* the **host facility** (or facilities) used for the production runs.
+
+These numbers will be aggregated in the comparison paper.
+
+
 ## Data Format
 
 Submissions follow the [watpy](https://git.tpi.uni-jena.de/core/watpy) /
@@ -287,6 +306,7 @@ with $f_0$ the initial gravitational-wave frequency of the (2, 2) mode
 (recorded as `id_gw_frequency_Momega22 / (2\pi)` in the metadata) and
 $\epsilon \sim 0.1$. The signal must be uniformly sampled in time —
 interpolate first if your $\Psi_4$ time series is not evenly spaced.
+
 
 ## Data Analysis
 
