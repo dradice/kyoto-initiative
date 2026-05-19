@@ -118,8 +118,8 @@ density $\rho_b \leq 10^{13}\ {\rm g}\,{\rm cm}^{-3}$.
 
 ### Computational Cost
 
-Each group is asked to keep track of the computational cost of their
-simulations and to report a few summary numbers at submission time.
+Each group is asked to keep track of the computational cost of each
+simulation and to report a few summary numbers at submission time.
 The intent is to document the resource footprint of this comparison
 and, more broadly, to motivate a discussion of the environmental
 impact of large-scale numerical-relativity campaigns. The quantities
