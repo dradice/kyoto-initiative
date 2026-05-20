@@ -129,10 +129,13 @@ to report are:
   production runs that contribute to the submitted waveform,
 * an estimate of the **equivalent CO2 emission**, e.g. via the
   [Green Algorithms](https://www.green-algorithms.org/) calculator
+  or the [Calcium](https://codeberg.org/unkaktus/calcium) utility
   applied to the host facility's energy mix, and
 * the **host facility** (or facilities) used for the production runs.
 
-These numbers will be aggregated in the comparison paper.
+These numbers will be aggregated in the comparison paper. For an
+example of the type of data we are looking to collect
+see Appendix C of [this paper](https://arxiv.org/abs/2601.19405).
 
 
 ## Data Format
