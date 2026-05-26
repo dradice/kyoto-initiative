@@ -65,14 +65,14 @@ Two variants of the initial data are made available.
 2. FUKA initial data with eccentricity reduced using SACRA [[info](InitialData/converged_BNS_SACRA_ECC_RED.dd2.40.0.0.2.6.q0.857143.0.0.17.info), [data](InitialData/converged_BNS_SACRA_ECC_RED.dd2.40.0.0.2.6.q0.857143.0.0.17.dat)].
 
 The SACRA eccentricity-reduction runs employed the standard 1+log slicing
-$$
+```math
   (\partial_t + \beta^i \partial_i) \alpha = 2 \alpha K,\qquad
-$$
+```
 with second-order $\Gamma$-freezing gauge [[1](https://arxiv.org/abs/0806.4007), [2](https://arxiv.org/abs/gr-qc/0206072)]:
-$$
+```math
   (\partial_t + \beta^i \partial_i) \beta^i = 0.75\, B^i, \qquad
   (\partial_t + \beta^i \partial_i) B^i = (\partial_t + \beta^i \partial_i) \tilde\Gamma - \eta_s B^i,
-$$
+```
 where $\eta_s = 0.03$.
 
 ## Simulation Parameters
