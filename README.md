@@ -64,6 +64,8 @@ Two variants of the initial data are made available.
 1. FUKA initial data employing post-Newtonian eccentricity reduction [[info](InitialData/converged_BNS_ECC_RED.dd2.40.0.0.2.6.q0.857143.0.0.17.info), [data](InitialData/converged_BNS_ECC_RED.dd2.40.0.0.2.6.q0.857143.0.0.17.dat)].
 2. FUKA initial data with eccentricity reduced using SACRA [[info](InitialData/converged_BNS_SACRA_ECC_RED.dd2.40.0.0.2.6.q0.857143.0.0.17.info), [data](InitialData/converged_BNS_SACRA_ECC_RED.dd2.40.0.0.2.6.q0.857143.0.0.17.dat)].
 
+Initial data was generated using the minimum temperature slice of the HS(DD2) EOS, assuming neutrino-less beta equilibrium [[EOS slice](InitialData/dd2_compose.lorene)]. Note that the evolution should be performed using the full HS(DD2) table.
+
 The SACRA eccentricity-reduction runs employed the standard 1+log slicing
 ```math
   (\partial_t + \beta^i \partial_i) \alpha = 2 \alpha K,\qquad
