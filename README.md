@@ -73,7 +73,7 @@ The SACRA eccentricity-reduction runs employed the standard 1+log slicing
 with second-order $\Gamma$-freezing gauge [[1](https://arxiv.org/abs/0806.4007), [2](https://arxiv.org/abs/gr-qc/0206072)]:
 ```math
   (\partial_t - \beta^i \partial_i) \beta^i = 0.75\, B^i, \qquad
-  (\partial_t - \beta^i \partial_i) B^i = (\partial_t + \beta^i \partial_i) \tilde\Gamma - \eta_s B^i,
+  (\partial_t - \beta^i \partial_i) B^i = (\partial_t - \beta^i \partial_i) \tilde\Gamma - \eta_s B^i,
 ```
 where $\eta_s = 0.03$.
 
