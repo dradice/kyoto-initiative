@@ -434,6 +434,11 @@ This also ensures that all groups are given the same space.
 * **Spokesperson:** Kenta Kiuchi <kenta.kiuchi@aei.mpg.de>
 * **URL:** https://doi.org/10.1103/zmdc-xkcm
 
+### SACRA-K
+
+* **Spokesperson:** Ming-Zhe Han <ming-zhe.han@aei.mpg.de>
+* **URL:** https://arxiv.org/abs/2607.08743
+
 ### SpEC
 
 * **Spokesperson:** Francois Foucart <francois.foucart@unh.edu>
